@@ -1,17 +1,14 @@
 'use strict';
 
-const ChatController = function () {
-  this.message = '';
-  this.messages = [];
-
+const LoginController = function () {
+  this.emailAddress = '';
   this.send = function () {
-    const timestamp = Date.now();
-    const text = this.message;
+    this.emailAddress = '';
+  };
 
-    this.messages.unshift({ timestamp, text });
-
-    this.message = '';
+  this.isEmpty = function () {
+    return this.emailAddress === '';
   };
 };
 
-module.exports = ChatController;
+module.exports = LoginController;

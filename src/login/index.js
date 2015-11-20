@@ -2,12 +2,10 @@
 
 const angular = require('angular');
 
-const ChatController = require('./ChatController'),
-    receivedTime = require('./receivedTime');
+const LoginController = require('./LoginController');
 
-const chat = angular.module('eshop.chat', []);
+const login = angular.module('csXmas.login', []);
 
-chat.controller('ChatController', ChatController);
-chat.filter('receivedTime', receivedTime);
+login.controller('LoginController', LoginController);
 
-module.exports = chat.name;
+module.exports = login.name;
