@@ -1,0 +1,18 @@
+<form ng-controller="ChatController as chat">
+  <div class="form-group">
+    <label for="message">Wobei benötigen Sie Unterstützung?</label>
+    <input type="text" class="form-control" id="message" placeholder="Stellen Sie Ihre Frage…" ng-model="chat.message" />
+  </div>
+  <button type="submit" class="btn btn-primary btn-sm" ng-click="chat.send()">Frage stellen</button>
+
+  <table class="table table-striped table-condensed chat-received-messages">
+    <tr>
+      <th width="125px;">Zeit</th>
+      <th>Nachrichten-Verlauf</th>
+    </tr>
+    <tr ng-repeat="message in chat.messages">
+      <td>{{message.timestamp | receivedTime}}</td>
+      <td>{{message.text}}</td>
+    </tr>
+  </table>
+</form>

@@ -1,0 +1,19 @@
+{
+  "name": "eshop",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "1.4.7",
+    "angular-ui-router": "0.2.15",
+    "babelify": "6.4.0",
+    "browserify": "12.0.1",
+    "eshop-shared": "git+ssh://git@github.com:goloroden/eshop-shared.git#0.2.0",
+    "eslint-config-es": "0.4.3",
+    "eslint-plugin-extended": "0.1.1",
+    "eslint-plugin-mocha": "1.0.0",
+    "gulp": "3.9.0",
+    "gulp-eslint": "1.0.0",
+    "moment": "2.10.6",
+    "request": "2.65.0",
+    "vinyl-source-stream": "1.1.0"
+  }
+}

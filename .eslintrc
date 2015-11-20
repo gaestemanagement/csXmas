@@ -1,0 +1,9 @@
+{
+  "extends": "es/2015/server",
+  "rules": {
+    "linebreak-style": 0
+  },
+  "env": {
+    "browser": true
+  }
+}

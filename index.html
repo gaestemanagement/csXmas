@@ -1,0 +1,74 @@
+<!doctype html>
+<html ng-app="eshop">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="index.css" />
+
+    <title>eShop</title>
+  </head>
+
+  <body>
+    <div class="container" ng-controller="MainNavigationController as mainnavigation">
+      <header>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" ui-sref="articles">eShop</a>
+              <a href="#navbar-collapse" class="navbar-toggle collapsed" data-toggle="collapse">
+                <i class="fa fa-bars"></i>
+              </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a ui-sref="articles">Artikel</a></li>
+                <li><a ui-sref="categories">Kategorien</a></li>
+                <li><a ui-sref="support">Support</a></li>
+                <li><a ui-sref="about">About</a></li>
+              </ul>
+
+              <form class="navbar-form navbar-right">
+                <p class="navbar-text" ng-show="mainnavigation.isLoggedIn() === false">nicht angemeldet</p>
+                <button class="btn btn-primary navbar-btn" ng-show="mainnavigation.isLoggedIn() === false" ng-click="mainnavigation.login()">anmelden</button>
+
+                <ul class="nav navbar-nav">
+                  <li class="dropdown" ng-show="mainnavigation.isLoggedIn() === true">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{mainnavigation.username}} <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a ng-click="mainnavigation.logout()" href="#">abmelden</a></li>
+                    </ul>
+                  </li>
+                </ul>
+
+                <button class="btn btn-success navbar-btn" ui-sref="cart" ng-disabled="mainnavigation.isEmpty()">
+                  <span class="badge">{{mainnavigation.wishesCount()}}</span>
+                   Einkaufswagen
+                  <span class="fa fa-shopping-cart"></span>
+                </button>
+
+              </form>
+
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div ui-view>
+
+        <div class="form-inline">
+          <div class="text-center"><i class="fa fa-spinner fa-pulse fa-2x"></i></div>
+          <p class="text-muted text-center">Shop wird geladen...</p>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+    <script src="build/app.js"></script>
+  </body>
+</html>
