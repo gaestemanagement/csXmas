@@ -8,7 +8,7 @@ const get = function (path, para, callback) {
   let server = '';
 
   // server = 'http://localhost:3000';
-  server = 'http://192.168.0.4:57773/csp/user/cs/xmasapi';
+  server = 'http://tfs.novacom.at:57773/csp/user/cs/xmasapi';
   request.get(`${server}${path}?email=${credentials.emailAddress}${para}`, (err, res) => {
     if (err) {
       return callback(err);
@@ -23,7 +23,7 @@ const post = function (path, content, callback) {
   let server = '';
 
   // server = 'http://localhost:3000';
-  server = 'http://192.168.0.4:57773/csp/user/cs/xmasapi';
+  server = 'http://tfs.novacom.at:57773/csp/user/cs/xmasapi';
 
   const opts = {
     method: 'POST',

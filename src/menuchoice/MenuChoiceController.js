@@ -7,6 +7,7 @@ const MenuChoiceController = function ($rootScope) {
   this.menuitems = [];
   this.choices = [ -1, -1, -1, -1 ];
   this.anrede = credentials.anrede;
+  this.isLoading = true;
 
   this.submitChoice = function () {
     const choice = (`{ course1: "${this.choices[1]}", course2: "${this.choices[2]}", course3: "${this.choices[3]}" }`);
@@ -61,6 +62,7 @@ const MenuChoiceController = function ($rootScope) {
       this.choices[1] = menureq.course1;
       this.choices[2] = menureq.course2;
       this.choices[3] = menureq.course3;
+      this.isLoading = false;
     });
   });
 };
