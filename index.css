@@ -9,3 +9,30 @@
 .chat-received-messages {
   margin-top: 30px;
 }
+.wordwrap {
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.btn-menuitem {
+  white-space: normal;
+  word-wrap: break-word;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  width: 100%;
+}
+
+.menuitem-selector input{
+  visibility: hidden; /* Makes input not-clickable */
+  position: absolute;
+  margin:0;padding:0;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+}
+
+.menu-bg {
+  background-color: #FBF5EF;
+  padding: 20px;
+  margin: 8px;
+}

@@ -1,0 +1,29 @@
+<form>
+  <div ng-controller="MenuChoiceController as menu">
+    <div class="row">
+      <div class="col-xs-0 col-md-3"></div>
+      <div class="col-xs-12 col-md-6">
+        <h2>{{menu.anrede}},</h2>
+        <p>Bitte wähle hier dein Menü für die novacom Weihnachtsfeier am 18.12.2015</p>
+        <div class="menu-bg">
+          <div class="menuitem-selector" ng-repeat="menuitem in menu.menuitems">
+            <ng-switch on="!$first && menuitem.COURSE != menu.menuitems[$index-1].COURSE">
+              <div ng-switch-when="true" class="group"><hr class="divider"></hr></div>
+            </ng-switch>
+            <label class="btn btn-default btn-menuitem" ng-class="{'btn-success': menu.choices[menuitem.COURSE]==menuitem.ARTICLE}">
+              <input type="radio" ng-checked="menu.choices[menuitem.COURSE]" ng-model="menu.choices[menuitem.COURSE]" value={{menuitem.ARTICLE}} name={{menuitem.COURSE}}>
+                <strong class="text-center">{{menuitem.name}}</strong><p></p>
+                <small class="text-center">{{menuitem.description}}</small>
+              </input>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn btn-primary center-block" ng-click="menu.submitChoice()">Meine Menüauswahl speichern</button>
+
+        <p></p>
+
+      </div>
+    </div>
+  </div>
+</form>
