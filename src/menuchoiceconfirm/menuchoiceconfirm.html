@@ -10,7 +10,7 @@
         <div class="menu-bg">
           <div class="menuitem-selector" ng-repeat="menuitem in menu.menuitems">
             <ng-switch on="!$first && menuitem.COURSE != menu.menuitems[$index-1].COURSE">
-              <div ng-switch-when="true" class="group"><hr class="divider"></hr></div>
+              <div ng-switch-when="true" class="group"></div>
             </ng-switch>
             <label class="btn btn-menuitem btn-menuitem-selected" ng-show="menu.choices[menuitem.COURSE]==menuitem.ARTICLE">
               <strong class="text-center">{{menuitem.name}}</strong><p></p>

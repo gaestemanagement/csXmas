@@ -3,7 +3,7 @@
 const credentials = require('../shared/credentials'),
     database = require('../shared/database');
 
-const MenuChoiceConfirmController = function ($rootScope) {
+const MenuChoiceConfirmController = function ($rootScope, $state) {
   if (credentials.emailAddress === '') {
     return $state.go('login');
   }

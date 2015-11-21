@@ -1,10 +1,21 @@
 <form ng-controller="LoginController as login">
-  <div class="form-group">
-    <label for="message">Bitte loggen Sie sich mit Ihrer Email Adresse ein</label>
-    <div class="input-group">
-      <input type="email" class="form-control" placeholder="novacom Mitarbeiter" aria-describedby="basic-addon2" ng-model="login.emailAddress">
-      <span class="input-group-addon" id="basic-addon2">@novacom.at</span>
+  <div class="col-xs-0 col-md-2"></div>
+  <div class="col-xs-12 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <label for="message">Bitte melde dich mit deiner Email Adresse an</label>
+        <div class="input-group">
+          <input type="email" class="form-control" placeholder="Deine EMail-Adresse" aria-describedby="basic-addon2" ng-model="login.emailAddress">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-primary btn-sm" ng-click="login.send()">Einloggen</button>
+          </span>
+        </div>
+        <br></br>
+        <label class="text-muted">
+          <input type="checkbox" ng-model="login.saveEmail">EMail Adresse merken
+          </input>
+        </label>
+       </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-sm" ng-click="login.send()">Einloggen</button>
   </div>
 </form>
