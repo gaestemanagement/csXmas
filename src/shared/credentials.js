@@ -1,9 +1,9 @@
 'use strict';
 
 const Credentials = function () {
-  this.emailAddress = 'i.gaigg@novacom.at';
-  this.username = 'Irene Gaigg';
-  this.anrede = 'Liebe Irene';
+  this.emailAddress = '';
+  this.username = '';
+  this.anrede = '';
 };
 
 Credentials.prototype.logout = function () {

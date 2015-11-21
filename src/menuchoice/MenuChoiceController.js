@@ -3,7 +3,11 @@
 const credentials = require('../shared/credentials'),
     database = require('../shared/database');
 
-const MenuChoiceController = function ($rootScope) {
+const MenuChoiceController = function ($rootScope, $state) {
+  if (credentials.emailAddress === '') {
+    $state.go('login');
+  }
+
   this.menuitems = [];
   this.choices = [ -1, -1, -1, -1 ];
   this.anrede = credentials.anrede;
