@@ -1,0 +1,32 @@
+<form>
+  <div ng-controller="MenuChoiceConfirmController as menu">
+    <div class="row">
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-8">
+        <div class="text-center">
+          <h3>{{menu.anrede}},</h3>
+          <p>Ausgezeichnete Auswahl - hier ist Dein Weihnachtsmenü:</p>
+        </div>
+        <div class="menu-bg">
+          <div class="menuitem-selector" ng-repeat="menuitem in menu.menuitems">
+            <ng-switch on="!$first && menuitem.COURSE != menu.menuitems[$index-1].COURSE">
+              <div ng-switch-when="true" class="group"><hr class="divider"></hr></div>
+            </ng-switch>
+            <label class="btn btn-menuitem btn-menuitem-selected" ng-show="menu.choices[menuitem.COURSE]==menuitem.ARTICLE">
+              <strong class="text-center">{{menuitem.name}}</strong><p></p>
+              <small class="text-center">{{menuitem.description}}</small>
+            </label>
+          </div>
+        </div>
+
+        <p></p>
+
+        <div class="text-center">
+          <img width="40%" src="./res/cook.jpg"></img>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</form>

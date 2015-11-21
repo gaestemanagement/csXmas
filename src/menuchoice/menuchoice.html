@@ -5,16 +5,18 @@
       <p class="text-muted text-center">Menükarte wird geladen...</p>
     </div>
     <div ng-show="!menu.isLoading" class="row">
-      <div class="col-xs-0 col-md-3"></div>
-      <div class="col-xs-12 col-md-6">
-        <h2>{{menu.anrede}},</h2>
-        <p>Bitte wähle hier dein Menü für die novacom Weihnachtsfeier am 18.12.2015</p>
+      <div class="col-xs-0 col-md-2"></div>
+      <div class="col-xs-12 col-md-8">
+        <div class="text-center">
+          <h3>{{menu.anrede}},</h3>
+          <p>Bitte wähle hier Dein Menü für die novacom Weihnachtsfeier am 18.12.2015</p>
+        </div>
         <div class="menu-bg">
           <div class="menuitem-selector" ng-repeat="menuitem in menu.menuitems">
             <ng-switch on="!$first && menuitem.COURSE != menu.menuitems[$index-1].COURSE">
               <div ng-switch-when="true" class="group"><hr class="divider"></hr></div>
             </ng-switch>
-            <label class="btn btn-default btn-menuitem" ng-class="{'btn-success': menu.choices[menuitem.COURSE]==menuitem.ARTICLE}">
+            <label class="btn btn-default btn-menuitem" ng-class="{'btn-menuitem-selected': menu.choices[menuitem.COURSE]==menuitem.ARTICLE}">
               <input type="radio" ng-checked="menu.choices[menuitem.COURSE]" ng-model="menu.choices[menuitem.COURSE]" value={{menuitem.ARTICLE}} name={{menuitem.COURSE}}>
                 <strong class="text-center">{{menuitem.name}}</strong><p></p>
                 <small class="text-center">{{menuitem.description}}</small>
@@ -22,14 +24,8 @@
             </label>
           </div>
         </div>
-
-        <button class="btn btn-primary center-block" ng-disabled="menu.isLoading" ng-click="menu.submitChoice()">Meine Menüauswahl speichern</button>
-
-        <p></p>
-
-      </div>
-      <div class="col-xs-0 col-md-3">
-        <img width="40%" src="./res/cook.jpg"></img>
+        <hr class="divider"></hr>
+        <button class="btn btn-lg btn-success center-block" ng-disabled="menu.isLoading" ng-click="menu.submitChoice()">Meine Menüauswahl speichern</button>
       </div>
     </div>
   </div>

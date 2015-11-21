@@ -3,36 +3,14 @@
 const credentials = require('../shared/credentials'),
     database = require('../shared/database');
 
-const MenuChoiceController = function ($rootScope, $state) {
+const MenuChoiceConfirmController = function ($rootScope) {
   if (credentials.emailAddress === '') {
     return $state.go('login');
   }
-
   this.menuitems = [];
   this.choices = [ -1, -1, -1, -1 ];
   this.anrede = credentials.anrede;
   this.isLoading = true;
-
-  this.submitChoice = function () {
-    const choice = (`{ course1: "${this.choices[1]}", course2: "${this.choices[2]}", course3: "${this.choices[3]}" }`);
-
-    database.postMenuChoice(choice, (err, choiceresp) => {
-      if (err) {
-        $rootScope.$apply(() => {
-        });
-        /* eslint-disable no-console */
-        return console.log(`Uh-oh, something went wrong... ${err.message}`);
-        /* eslint-enable no-console */
-      }
-
-      $rootScope.$apply(() => {
-        /* eslint-disable no-console */
-        console.log(`${choiceresp}`);
-        /* eslint-enable no-console */
-        return $state.go('menuchoiceconfirm');
-      });
-    });
-  };
 
   database.getMenu((err, menureq) => {
     if (err) {
@@ -66,4 +44,4 @@ const MenuChoiceController = function ($rootScope, $state) {
   });
 };
 
-module.exports = MenuChoiceController;
+module.exports = MenuChoiceConfirmController;

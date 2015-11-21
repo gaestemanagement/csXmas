@@ -4,11 +4,13 @@ const angular = require('angular');
 const uiRouter = require('angular-ui-router');
 
 const login = require('./login'),
-    menuchoice = require('./menuchoice');
+    menuchoice = require('./menuchoice'),
+    menuchoiceconfirm = require('./menuchoiceconfirm');
 
 const csXmas = angular.module('csXmas', [
   login,
   menuchoice,
+  menuchoiceconfirm,
   uiRouter
 ]);
 
@@ -23,5 +25,9 @@ csXmas.config(function ($stateProvider, $urlRouterProvider) {
   state('menuchoice', {
     url: '/menuchoice',
     templateUrl: './src/menuchoice/menuchoice.html'
+  }).
+  state('menuchoiceconfirm', {
+    url: '/menuchoiceconfirm',
+    templateUrl: './src/menuchoiceconfirm/menuchoiceconfirm.html'
   });
 });
