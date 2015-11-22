@@ -1,12 +1,10 @@
 body {
-  background-color: #FBF5EF;
   margin-bottom: 50px;
 }
 
 .bg-header {
   background-color: #FBF5EF;
-  background-color: #8D1003;
-  color: #fff;
+  color: #000;
 }
 
 .header-image-top {
@@ -55,9 +53,6 @@ body {
 }
 
 .menu-bg {
-  background-color: #FBF5EF;
-  background-image: url("./res/paper.gif");
-  border-color: #B6724E;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -67,7 +62,6 @@ body {
 
 @media screen and (min-width: 480px) {
   .menu-bg {
-    background-color: #FBF5EF;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 50px;
