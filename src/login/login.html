@@ -7,7 +7,7 @@
           <p>Hier kannst du dein Menü für die Weihnachtsfeier auswählen.</p>
           <label for="message">Bitte melde dich mit deiner Email Adresse an</label>
           <div class="input-group">
-            <input type="email" class="form-control" placeholder="Deine EMail-Adresse" aria-describedby="basic-addon2" ng-model="login.emailAddress">
+            <input type="email" class="form-control" placeholder="Deine EMail-Adresse" ng-model="login.emailAddress">
             <button type="submit" class="form-control btn btn-primary btn-sm" ng-click="login.send()">Anmelden</button>
           </div>
           <br></br>
@@ -16,6 +16,11 @@
             </input>
           </label>
         </div>
+      </div>
+    </div>
+    <div class="col-xs-24 col-md-12">
+      <div class="alert alert-danger" ng-show="login.isValidEmail">
+        <strong>Achtung</strong> Diese EMailadresse ist uns nicht bekannt!
       </div>
     </div>
   </div>

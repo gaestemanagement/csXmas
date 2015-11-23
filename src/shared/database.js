@@ -47,6 +47,10 @@ const database = {
     get('/menu', '', callback);
   },
 
+  validateEmail (callback) {
+    get('/validateEmail', '', callback);
+  },
+
   getMenuChoice (callback) {
     get('/menuChoice', '', callback);
   },
