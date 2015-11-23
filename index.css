@@ -3,7 +3,7 @@ body {
 }
 
 .bg-header {
-  background-color: #FBF5EF;
+  background-color: #FFFDF6;
   color: #000;
 }
 
@@ -36,12 +36,12 @@ body {
 }
 
 .btn-menuitem-selected {
-  color: #fff;
-  border-color: #9D2005;
-  background-color: #8D1003;
+  color: #9B7B00
+  border-color: #312E22;
+  background-color: #FDCA00;
 }
-.btn-menuitem-selected:hover{color:#fff;background-color:#8A1003;border-color:#8D1003}
-.btn-menuitem-selected.active.focus,.btn-menuitem-selected.active:focus,.btn-menuitem-selected.active:hover,.btn-menuitem-selected:active.focus,.btn-menuitem-selected:active:focus,.btn-menuitem-selected:active:hover,.open>.dropdown-toggle.btn-menuitem-selected.focus,.open>.dropdown-toggle.btn-menuitem-selected:focus,.open>.dropdown-toggle.btn-menuitem-selected:hover{color:#fff;background-color:#7A1003;border-color:#8A1003}
+.btn-menuitem-selected:hover{color:#fff;background-color:#E9C125;border-color:#312E22}
+.btn-menuitem-selected.active.focus,.btn-menuitem-selected.active:focus,.btn-menuitem-selected.active:hover,.btn-menuitem-selected:active.focus,.btn-menuitem-selected:active:focus,.btn-menuitem-selected:active:hover,.open>.dropdown-toggle.btn-menuitem-selected.focus,.open>.dropdown-toggle.btn-menuitem-selected:focus,.open>.dropdown-toggle.btn-menuitem-selected:hover{color:#fff;background-color:#FFD739;border-color:#312E22}
 
 .menuitem-selector input{
   visibility: hidden; /* Makes input not-clickable */
@@ -68,4 +68,5 @@ body {
     padding-right: 50px;
     margin: 14px;
   }
+
 }

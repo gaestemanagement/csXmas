@@ -8,9 +8,9 @@
           <label for="message">Bitte melde dich mit deiner Email Adresse an</label>
           <div class="input-group">
             <input type="email" class="form-control" placeholder="Deine EMail-Adresse" ng-model="login.emailAddress">
-            <button type="submit" class="form-control btn btn-primary btn-sm" ng-click="login.send()">Anmelden</button>
+            <button type="submit" class="form-control btn-menuitem-selected" ng-click="login.send()">Anmelden</button>
             <p></p>
-            <div class="alert alert-danger" ng-show="login.isNotValidEmailAddress">
+            <div class="alert btn-menuitem" ng-show="login.isNotValidEmailAddress">
               <strong>Diese EMail-Adresse ist uns nicht bekannt!</strong>
             </div>
           </div>
