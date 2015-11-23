@@ -4,32 +4,14 @@ const credentials = require('../shared/credentials'),
     database = require('../shared/database');
 
 const LoginController = function ($rootScope, $state) {
-  const storageEmailAddress = window.localStorage.getItem('login-email');
-
-  if (storageEmailAddress !== undefined && storageEmailAddress !== 'undefined') {
-    this.emailAddress = storageEmailAddress;
-  }
+  this.emailAddress = window.localStorage.getItem('login-email');
+  this.isNotValidEmailAddress = false;
+  /* eslint-disable no-console */
+  console.log(window.localStorage.getItem('login-email'));
+  /* eslint-enable no-console */
 
   this.send = function () {
-    /* eslint-disable no-console */
-    console.log(`login.send started`);
-    /* eslint-enable no-console */
-    if (this.isValidEmail()) {
-      if (this.saveEmail === true) {
-        window.localStorage.setItem('login-email', credentials.emailAddress);
-      }
-      if (this.saveEmail === false) {
-        window.localStorage.removeItem('login-email');
-      }
-      $state.go('menuchoice');
-    }
-  };
-
-  this.isEmpty = function () {
-    return this.emailAddress === '';
-  };
-
-  this.isValidEmail = function () {
+    credentials.emailAddress = this.emailAddress;
     database.validateEmail((err, loginreq) => {
       if (err) {
         /* eslint-disable no-console */
@@ -39,23 +21,31 @@ const LoginController = function ($rootScope, $state) {
       }
 
       $rootScope.$apply(() => {
-        this.loginstate = loginreq.state;
-        /* eslint-disable no-console */
-        console.log('loginstate= ' + this.loginstate);
-        /* eslint-enable no-console */
-        if (this.loginstate === 0) {
-          this.isValidEmail = false;
+        if (loginreq.state !== 0) {
           /* eslint-disable no-console */
-          console.log(`set errorState true`);
+          console.log('Login OK');
           /* eslint-enable no-console */
-          return false;
+
+          credentials.username = loginreq.name;
+          credentials.anrede = `Liebe(r) ${loginreq.name}`;
+          if (this.saveEmail === true) {
+            window.localStorage.setItem('login-email', credentials.emailAddress);
+          } else {
+            window.localStorage.removeItem('login-email');
+          }
+          $state.go('menuchoice');
+        } else {
+          /* eslint-disable no-console */
+          console.log('Login not OK');
+          /* eslint-enable no-console */
+          this.isNotValidEmailAddress = true;
         }
-        credentials.emailAddress = this.emailAddress;
-        credentials.username = loginreq.name;
-        credentials.anrede = `Liebe(r) ${loginreq.name}`;
-        return true;
       });
     });
+  };
+
+  this.isEmpty = function () {
+    return this.emailAddress === '';
   };
 };
 

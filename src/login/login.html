@@ -9,6 +9,10 @@
           <div class="input-group">
             <input type="email" class="form-control" placeholder="Deine EMail-Adresse" ng-model="login.emailAddress">
             <button type="submit" class="form-control btn btn-primary btn-sm" ng-click="login.send()">Anmelden</button>
+            <p></p>
+            <div class="alert alert-danger" ng-show="login.isNotValidEmailAddress">
+              <strong>Achtung</strong> Diese EMailadresse ist uns nicht bekannt!
+            </div>
           </div>
           <br></br>
           <label class="text-muted">
@@ -16,11 +20,6 @@
             </input>
           </label>
         </div>
-      </div>
-    </div>
-    <div class="col-xs-24 col-md-12">
-      <div class="alert alert-danger" ng-show="login.isValidEmail">
-        <strong>Achtung</strong> Diese EMailadresse ist uns nicht bekannt!
       </div>
     </div>
   </div>
