@@ -12,36 +12,33 @@ const LoginController = function ($rootScope, $state) {
 
   this.send = function () {
     credentials.emailAddress = this.emailAddress;
-    database.validateEmail((err, loginreq) => {
-      if (err) {
-        /* eslint-disable no-console */
-        console.log(`Uh-oh, something went wrong... ${err.message}`);
-        /* eslint-enable no-console */
-        return false;
-      }
-
-      $rootScope.$apply(() => {
-        if (loginreq.state !== 0) {
+    if (this.emailAddress === '') {
+      database.validateEmail((err, loginreq) => {
+        if (err) {
           /* eslint-disable no-console */
-          console.log('Login OK');
+          console.log(`Uh-oh, something went wrong... ${err.message}`);
           /* eslint-enable no-console */
-
-          credentials.username = loginreq.name;
-          credentials.anrede = `Liebe(r) ${loginreq.name}`;
-          if (this.saveEmail === true) {
-            window.localStorage.setItem('login-email', credentials.emailAddress);
-          } else {
-            window.localStorage.removeItem('login-email');
-          }
-          $state.go('menuchoice');
-        } else {
-          /* eslint-disable no-console */
-          console.log('Login not OK');
-          /* eslint-enable no-console */
-          this.isNotValidEmailAddress = true;
+          return false;
         }
+
+        $rootScope.$apply(() => {
+          if (loginreq.state !== 0) {
+            credentials.username = loginreq.name;
+            credentials.anrede = `Liebe(r) ${loginreq.name}`;
+            if (this.saveEmail === true) {
+              window.localStorage.setItem('login-email', credentials.emailAddress);
+            } else {
+              window.localStorage.removeItem('login-email');
+            }
+            $state.go('menuchoice');
+          } else {
+            this.isNotValidEmailAddress = true;
+          }
+        });
       });
-    });
+    } else {
+      this.isNotValidEmailAddress = true;
+    }
   };
 
   this.isEmpty = function () {
