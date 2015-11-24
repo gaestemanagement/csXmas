@@ -23,7 +23,7 @@ const LoginController = function ($rootScope, $state) {
       $rootScope.$apply(() => {
         if (loginreq.state !== 0) {
           credentials.username = loginreq.name;
-          credentials.anrede = `Liebe(r) ${loginreq.name}`;
+          credentials.anrede = loginreq.salutation;
           if (this.saveEmail === true) {
             window.localStorage.setItem('login-email', credentials.emailAddress);
           } else {
