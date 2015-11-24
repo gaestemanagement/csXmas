@@ -5,6 +5,13 @@ const credentials = require('../shared/credentials'),
 
 const LoginController = function ($rootScope, $state) {
   this.emailAddress = window.localStorage.getItem('login-email');
+  this.saveEmail = true;
+  /* eslint-disable no-console */
+  console.log(window.localStorage.getItem(this.emailAddress));
+  /* eslint-enable no-console */
+  if (this.emailAddress === null) {
+    this.saveEmail = false;
+  }
   this.isNotValidEmailAddress = false;
   /* eslint-disable no-console */
   console.log(window.localStorage.getItem('login-email'));
