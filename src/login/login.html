@@ -1,24 +1,32 @@
 <form ng-controller="LoginController as login">
-  <div class="row">
-    <div class="col-xs-0 col-md-2"></div>
-    <div class="col-xs-12 col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-body container center-block">
-          <p>Hier kannst du dein Menü für die Weihnachtsfeier auswählen.</p>
-          <label for="message">Bitte melde dich mit deiner Email Adresse an</label>
-          <div class="input-group">
-            <input type="email" class="form-control" placeholder="Deine EMail-Adresse" ng-model="login.emailAddress">
-            <button type="submit" class="form-control btn-menuitem-selected" ng-click="login.send()">Anmelden</button>
-            <p></p>
-            <div class="alert btn-menuitem" ng-show="login.isNotValidEmailAddress">
-              <strong>Diese EMail-Adresse ist uns nicht bekannt!</strong>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <div class="login-panel panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Bitte mit deiner EMail Adresse anmelden</h3>
           </div>
-          <br></br>
-          <label class="text-muted">
-            <input type="checkbox" ng-model="login.saveEmail"> EMail Adresse merken
-            </input>
-          </label>
+          <div class="panel-body">
+            <p>Hier kannst du dein Menü für die Weihnachtsfeier auswählen.</p>
+            <form role="form">
+              <fieldset>
+                <div class="form-group">
+                  <input type="email" class="form-control" placeholder="Deine EMail-Adresse" ng-model="login.emailAddress" autofocus>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" ng-model="login.saveEmail" value="EMail Adresse merken">EMail Adresse merken
+                  </label>
+                </div>
+                <!-- Change this to a button or input when using this as a form -->
+                <button type="submit" class="btn btn-lg btn-success btn-block" ng-click="login.send()">Anmelden</button>
+              </fieldset>
+              <p></p>
+              <div class="alert btn-menuitem" ng-show="login.isNotValidEmailAddress">
+                <strong>Diese EMail-Adresse ist uns nicht bekannt!</strong>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
