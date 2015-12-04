@@ -36,7 +36,7 @@ const LoginController = function ($rootScope, $state) {
           } else {
             window.localStorage.removeItem('login-email');
           }
-          $state.go('menuchoice');
+          $state.go('menuchoiceconfirm');
         } else {
           this.isNotValidEmailAddress = true;
         }
